@@ -1,0 +1,15 @@
+1. for creating storage link
+
+Route::get('/linkstorage', function () {
+        $targetFolder = base_path().'/storage/app/public';
+      
+        $linkFolder = $_SERVER['CONTEXT_DOCUMENT_ROOT'].'/storage'; 
+        symlink($targetFolder, $linkFolder);
+        });
+        
+ 
+ 2. removing all cache
+ 
+ Route::get('/clear-all', function() {
+    Artisan::call('optimize:clear');
+});
